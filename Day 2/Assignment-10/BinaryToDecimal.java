@@ -25,6 +25,7 @@ public class BinaryToDecimal {
             if(s.charAt(i)=='1'){
             res+=Math.pow(2,s.length()-1-i);
             }
+        }
         return res;  
     }
 }
