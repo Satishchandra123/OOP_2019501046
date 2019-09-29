@@ -1,54 +1,86 @@
-/**
- * This class discusses about the Contact Object. The attributes of the contact object
+ /**
+ * This class discusses about the Contact Object.
+ * The attributes of the contact object
  * are as follows.
  * name : Name of the person / friend.
  * email : mail id of the person / friend.
  * phoneNumber : Phone Number of the person / friend.
- * 
+ *
  * @author Siva Sankar
  */
 
-//  Your code goes here... For Contact class
-/**
- * Contact
- */
 public class Contact {
-    public String name;
-    public String email;
-    public String phoneNumber;
-    public Contact(String name, String email, String phoneNumber)
-    {
-        this.name=name;
-        this.email=email;
-        this.phoneNumber=phoneNumber;        
+    /**
+     * .
+     */
+    private String name;
+    /**
+     * .
+     */
+    private String email;
+    /**
+     * .
+     */
+    private String phoneNumber;
+    /**
+     * @param name1  .
+     * @param email1  .
+     * @param phoneNumber1  .
+     */
+    public Contact(final String name1, final String email1,
+    final String phoneNumber1) {
+        this.name = name1;
+        this.email = email1;
+        this.phoneNumber = phoneNumber1;
     }
-    public String getName()
-    {
+    /**
+     *
+     * @return name
+     */
+    public String getName() {
         return this.name;
     }
-    public String getPhoneNumber()
-    {
+    /**
+     *
+     * @return phoneNumber
+     */
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
-    public String getEmail()
-    {
+    /**
+     *
+     * @return email
+     */
+    public String getEmail() {
         return this.email;
     }
-    public void setEmail( String email)
-    {
-        this.email=email;
+    /**
+     *
+     * @param email1 .
+     */
+    public void setEmail(final String email1) {
+        this.email = email1;
     }
-    public void setName(String name)
-    {
-        this.name=name;
+    /**
+     *
+     * @param name1 .
+     */
+    public void setName(final String name1) {
+        this.name = name1;
     }
-    public void setPhoneNumber(String phonenumber)
-    {
-        this.phoneNumber=phonenumber;
+    /**
+     * @param phonenumber1 .
+     */
+
+    public void setPhoneNumber(final String phonenumber1) {
+        this.phoneNumber = phonenumber1;
     }
-    public String toString()
-    {
-        return "{ Name = "+this.name+", Email = "+ this.email+", Phone Number = "+this.phoneNumber+" }";
+    /**
+     * @return .
+     */
+    public String toString() {
+        return "{ Name = " + this.name + ", Email = " + this.email
+        + ", Phone Number = " + this.phoneNumber + " }";
 
     }
 }

@@ -27,8 +27,8 @@ class ContactsManager {
     private Contact[] myFriends;
 
     /**
-     * Define a variable friendsCount of type int maintain the number of
-     * contacts of your friends.
+     * Define a variable friendsCount of type int maintain the
+     * number of contacts of your friends.
      */
     private int friendsCount;
 
@@ -70,7 +70,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].name.equals(searchName)) {
+                if (myFriends[i].getname().equals(searchName)) {
                     return myFriends[i];
                 }
             }
@@ -89,7 +89,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].email.equals(email)) {
+                if (myFriends[i].getemail().equals(email)) {
                     return myFriends[i];
                 }
             }
@@ -111,7 +111,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].name.equals(searchName)) {
+                if (myFriends[i].getname().equals(searchName)) {
                     for (int j = i + 1; j < friendsCount; j++) {
                         myFriends[i] = myFriends[j];
                     }
