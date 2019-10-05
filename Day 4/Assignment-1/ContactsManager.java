@@ -38,7 +38,7 @@ class ContactsManager {
      *
      * 1. Initializes the friendsCount to 0 as there no contacts in the list.
      * 2. myFriends with array initial size of 500
-     */
+     */ 
     ContactsManager() {
         friendsCount = 0;
         final int x = 500;
