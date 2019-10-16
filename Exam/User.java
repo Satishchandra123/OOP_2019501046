@@ -1,19 +1,17 @@
 import java.util.*;
 
 public class User {
-    private String userName;
+    public String userName;
 
-    private int  numberofConnections;
+    int size;
     
-    private String[] userConnections;
+    String[] userConnections = new String[100];
 
-    User(String userName, int numberofConnections, String userConnections) {
+    User(String userName) {
         this.userName = userName;
-        this.numberofConnections = numberofConnections;
-        this.userConnections = userConnections;
+        size = 0;
     }
-    public String getUserName() {
-        return userName;
+    User(String userName,String )
     }
     public String getNumberofConnections() {
         return numberofConnections;

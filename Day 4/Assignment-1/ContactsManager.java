@@ -70,7 +70,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].getname().equals(searchName)) {
+                if (myFriends[i].getName().equals(searchName)) {
                     return myFriends[i];
                 }
             }
@@ -89,7 +89,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].getemail().equals(email)) {
+                if (myFriends[i].getEmail().equals(email)) {
                     return myFriends[i];
                 }
             }
@@ -111,7 +111,7 @@ class ContactsManager {
         //  Your code goes here....
         for (int i = 0; i < friendsCount; i++) {
             if (myFriends[i] != null) {
-                if (myFriends[i].getname().equals(searchName)) {
+                if (myFriends[i].getName().equals(searchName)) {
                     for (int j = i + 1; j < friendsCount; j++) {
                         myFriends[i] = myFriends[j];
                     }

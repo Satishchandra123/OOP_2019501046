@@ -112,7 +112,10 @@ public class List {
      */
     public void add(int item) {
         //Inserts the specified element at the end of the list.
-        
+        if (size < list.length) {
+            list[size++] = item;
+        } else
+        System.out.println("max size reached");
     }
 
     /*
@@ -147,6 +150,9 @@ public class List {
      */
 
     // todo create resize method
+    private void resize() {
+        list = Arrays.copyOf(list, list.length*2);
+    }
 
 
     /*
@@ -157,7 +163,7 @@ public class List {
      * The method returns an int. Empty list should return 0.
      */
     public int size() {
-        
+        return size;
     }
 
     /*
@@ -184,7 +190,13 @@ public class List {
     public void remove(int index) {
         // write the logic for remove here.
         // Think about what to do to the size variable.
-        
+        if (index < size) {
+            for(int i = index; i<list.length-1; i++) {
+                list[i] = list[i+1];
+        }
+        list[list.length-1] = 0;
+        size--;
+        }
     }
 
     /*
@@ -199,7 +211,9 @@ public class List {
      * number of items in the list? Would size variable be useful?
      */
     public int get(int index) {
-
+        if (index < size) {
+            return list[index];
+        }else return -1;
     }
 
     /*
@@ -241,7 +255,11 @@ public class List {
      * the item exists and otherwise false
      */
     public boolean contains(int item) {
-        
+        for (int i=0; i<size; i++) {
+            if (list[i] == item) {
+                return true;
+            }
+        }return false;
     }
 
     /*
@@ -250,6 +268,11 @@ public class List {
      * or -1 if this list does not contain the element.
      */
     public int indexOf(int item) {
+        for (int i = 0; i<size; i++) {
+            if(list[i] == item) {
+                return i;
+            }
+        }return -1;
         
     }
 
