@@ -18,6 +18,7 @@ public class SocialNetwork {
      * The size indicates the numebr of users in the network
      */
     int size;
+    int capacity;
 
     /**
      * Initializes the default values of the social network.
@@ -25,9 +26,9 @@ public class SocialNetwork {
     public SocialNetwork() {
         // TODO
         // Your code goes here
-        int x = 500;
-        users = new User[x];
-        int size = users.length
+        this.users = new User[20];
+        this.size = 0;
+        this.capacity = 20;
     }
 
     /**
@@ -44,14 +45,16 @@ public class SocialNetwork {
     }
 
     private boolean searchUser(User user) {
+         if(user == null) {
+            return false;
+        }
         for (int i = 0; i < size; i++) {
-            if (user.equals(users[i])) {
+            if (user.equals(users[i]) || user.getUserName().equals(users[i].getUserName())) {
                 return true;
             }
         }
         return false;
     }
-
     /**
      * Please don't modify the follwoing code.
      * This method returns the User based on the userName.
@@ -78,7 +81,15 @@ public class SocialNetwork {
     public void addUser(User userA) {
         // TODO
         // Your code goes here
-        return;
+        if (!searchUser(userA)) {
+            this.users[size] = userA;
+            // this.userNames[size] = userA.userName;
+            this.size++;
+            if (this.size == this.capacity) {
+                this.users = java.util.Arrays.copyOf(users, this.capacity * 2);
+                this.capacity = this.capacity * 2;
+            }
+        }
     }
 
     /**
@@ -96,6 +107,9 @@ public class SocialNetwork {
     public void addConnection(User userA, User userB) {
         // TODO
         // Your code goes here
+        if (searchUser(userA) && searchUser(userB)) {
+            userA.addFriend(userB);
+        }
     }
 
     /**
@@ -111,6 +125,13 @@ public class SocialNetwork {
     public User[] getConnections(User userA) {
         // TODO
         // Your code goes here
+        if(userA != null) {
+            if(searchUser(userA)) {
+                return userA.connections;
+            } else {
+                return null;
+            }
+        }
         return null;
     }
 
@@ -128,7 +149,21 @@ public class SocialNetwork {
     public User[] getCommonConnections(User userA, User userB) {
         // TODO
         // Your code goes here
+        User[] commonConnections = new User[10];
+        int i = 0;
+
+        if (searchUser(userA) && searchUser(userB)) {
+            for (User user1 : userA.connections) {
+                for (User user2 : userB.connections) {
+                    if ((user1 != null && user2 != null ) && user1.getUserName().equals(user2.getUserName())) {
+                        commonConnections[i++] = user1;
+                    }
+                }
+            }
+            return commonConnections;
+        } else {
         return null;
+        }
     }
 
     /**

@@ -1,34 +1,62 @@
 import java.util.*;
+public final class User {
+    String userName;
+    User[] connections;
+    int noOfConnections;
+    int connectionsCapacity;
 
-public class User {
-    public String userName;
+    User(final String name) {
+        userName = name;
+        connections = new User[20];
+        noOfConnections = 0;
+        connectionsCapacity = 20;
+    }
 
-    int size;
+    User(final String name, final String n) {
+        userName = name;
+        connections = new User[20];
+        noOfConnections = 0;
+        connectionsCapacity = 20;
+    }
     
-    String[] userConnections = new String[100];
+    User(final String name,final User[] userFriends, final int n) {
+        userName = name;
+        connections = userFriends;
+        noOfConnections = n;
+        connectionsCapacity = 20;
+    }
 
-    User(String userName) {
-        this.userName = userName;
-        size = 0;
+    public String getUserName() {
+        return this.userName;
     }
-    User(String userName,String )
+
+    public void addFriend(final User user) {
+        connections[noOfConnections] = user;
+        noOfConnections++;
+
+        if (noOfConnections == connectionsCapacity){
+            connections = java.util.Arrays.copyOf(connections, connectionsCapacity * 2);
+            connectionsCapacity = connectionsCapacity * 2;
+        }
     }
-    public String getNumberofConnections() {
-        return numberofConnections;
-    }
-    public String getUserConnections() {
-        return userConnections;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public void setNumberofConnections(String numberofConnections) {
-        this.numberofConnections = numberofConnections;
-    }
-    public void setUserConnections(String userConnections) {
-        this.userConnections = userConnections;
-    }
+
+    /*
+     *to string
+     */
     public String toString() {
-        return (this.user + " is connected to " + this.userconnections); 
+        String out =  userName + " : ";
+
+        if (noOfConnections > 0) {
+            out += "[";
+
+            for (int i = 0; i < noOfConnections - 1; i++) {
+                out += connections[i].userName + ", ";
+            }
+            out += connections[noOfConnections - 1].userName + "]";
+        }
+
+        return out;
     }
+
+
 }
