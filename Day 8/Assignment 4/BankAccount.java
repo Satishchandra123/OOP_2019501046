@@ -21,6 +21,12 @@ class BankAccount {
     public String getAccountInfo() {
          return this.accountNumber + "\t" + this.Name + "\t" + this.balance + "\t" + this.limit + "\t" + this.accountType + "\t" + this.monthsOld;
     }
+    public String getAccountType(){
+        return this.accountType;
+    }
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
     public int getAccountNumber() {
         return this.accountNumber;
     }
@@ -42,13 +48,8 @@ class BankAccount {
     public void setLimit(int limit) {
         this.limit = limit;
     }
-    public String getAccountType() {
-        return this.accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
+    
+   
     public int getMonthsOld() {
         return this.monthsOld;
     }

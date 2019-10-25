@@ -71,7 +71,7 @@ public class List {
         // What should be the default values?
         // In the case of the list, it should be empty but
         // it should be initialized with an array size like 10
-        
+    
 
         // Think about the initial value for size.
         // How many items do we have in the list when you create it?
@@ -112,12 +112,11 @@ public class List {
      */
     public void add(int item) {
         //Inserts the specified element at the end of the list.
-        if (size < list.length) {
-            list[size++] = item;
+        if(size < list.length){
+            list[size] = item;
         } else
         System.out.println("max size reached");
     }
-
     /*
      *
      * Resize the list
@@ -191,13 +190,14 @@ public class List {
         // write the logic for remove here.
         // Think about what to do to the size variable.
         if (index < size) {
-            for(int i = index; i<list.length-1; i++) {
+            for(int i=index; i<list.length-1; i++) {
                 list[i] = list[i+1];
-        }
+            }
         list[list.length-1] = 0;
         size--;
         }
     }
+        
 
     /*
      * Get method has to return the items that is
