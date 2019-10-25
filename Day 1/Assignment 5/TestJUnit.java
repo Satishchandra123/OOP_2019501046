@@ -1,6 +1,6 @@
 /**
- * This is JUnit that tests the abs and AbsoluteNumber methods
- *  that is available in AreaOfCircle class. This contains 10 testcases.
+ * This is JUnit that tests the evenOrOdd methods that is available in 
+ * EvenOrOdd class. This contains 10 testcases.
  * 
  * Please don't run this file.
  * 
@@ -16,51 +16,51 @@ import static org.junit.Assert.assertEquals;
 public class TestJUnit {
 	@Test
 	public void testCase1() {
-		assertEquals(12, AbsoluteNumber.abs(12));
+		assertEquals(true, EvenOrOdd.evenOrOdd(2));
 	}
 
 	@Test
 	public void testCase2() {
-		assertEquals(12, AbsoluteNumber.abs(-12));
+		assertEquals(false, EvenOrOdd.evenOrOdd(1));
 	}
 
 	@Test
 	public void testCase3() {
-		assertEquals(1, AbsoluteNumber.abs(-1));
+		assertEquals(false, EvenOrOdd.evenOrOdd(23));
 	}
 
 	@Test
 	public void testCase4() {
-		assertEquals(10, AbsoluteNumber.abs(-10));
+		assertEquals(true, EvenOrOdd.evenOrOdd(232));
 	}
 
 	@Test
 	public void testCase5() {
-		assertEquals(2147483646, AbsoluteNumber.abs(-2147483646));
+		assertEquals(false, EvenOrOdd.evenOrOdd(2223));
 	}
 
 	@Test
 	public void testCase6() {
-		assertEquals(2147483647, AbsoluteNumber.abs(-2147483647));
+		assertEquals(true, EvenOrOdd.evenOrOdd(2234));
 	}
 
 	@Test
 	public void testCase7() {
-		assertEquals(2147483647, AbsoluteNumber.abs(2147483647));
+		assertEquals(false, EvenOrOdd.evenOrOdd(1211));
 	}
 
 	@Test
 	public void testCase8() {
-		assertEquals(0, AbsoluteNumber.abs(0));
+		assertEquals(false, EvenOrOdd.evenOrOdd(32767));
 	}
 
 	@Test
 	public void testCase9() {
-		assertEquals(2, AbsoluteNumber.abs(-2));
+		assertEquals(false, EvenOrOdd.evenOrOdd(655353));
 	}
 
 	@Test
 	public void testCase10() {
-		assertEquals(3, AbsoluteNumber.abs(-3));
+		assertEquals(true, EvenOrOdd.evenOrOdd(2147483644));
 	}
 }

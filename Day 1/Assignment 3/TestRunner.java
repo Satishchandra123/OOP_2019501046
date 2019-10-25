@@ -26,16 +26,20 @@ public class TestRunner {
          System.out.println("Oh!!! Some of the test cases failed may be because of logical errors");
          System.out.println("Please see the details below for the test cases that are failed");
          System.out.println("===============================");
-         for (Failure failure : result.getFailures()) {
-            int index = failure.getDescription().toString().indexOf("(");
-            System.out.println("Test Case : " + failure.getDescription().toString().substring(8, index));
-            int start = failure.getMessage().indexOf("<");
-            int end = failure.getMessage().indexOf(">");
-            System.out.println("Expected Output : " + failure.getMessage().substring(start+1, end));
-            start = failure.getMessage().indexOf("<", start + 1);
-            end = failure.getMessage().indexOf(">", end + 1);
-            System.out.println("Your Output : " + failure.getMessage().substring(start+1, end));
-            System.out.println("===============================");
+         try {
+            for (Failure failure : result.getFailures()) {
+               int index = failure.getDescription().toString().indexOf("(");
+               System.out.println("Test Case : " + failure.getDescription().toString().substring(8, index));
+               int start = failure.getMessage().indexOf("<");
+               int end = failure.getMessage().indexOf(">");
+               System.out.println("Expected Output : " + failure.getMessage().substring(start+1, end));
+               start = failure.getMessage().indexOf("<", start + 1);
+               end = failure.getMessage().indexOf(">", end + 1);
+               System.out.println("Your Output : " + failure.getMessage().substring(start+1, end));
+               System.out.println("===============================");
+            }
+         } catch(Exception ex) {
+            ex.printStackTrace();
          }
          System.out.println((result.getRunCount() - result.getFailureCount()) + " / " + result.getRunCount() + " Test Cases Passed....");
       }
